@@ -1,0 +1,35 @@
+@startuml
+
+interface ReprodutorMusical {
+  +tocar(): void
+  +pausar(): void
+  +selecionarMusica(musica: String): void
+}
+
+interface AparelhoTelefonico {
+  +ligar(numero: String): void
+  +atender(): void
+  +iniciarCorreioVoz(): void
+}
+
+interface NavegadorInternet {
+  +exibirPagina(url: String): void
+  +adicionarNovaAba(): void
+  +atualizarPagina(): void
+}
+
+class iPhone {
+  -reprodutor: ReprodutorMusical
+  -telefone: AparelhoTelefonico
+  -navegador: NavegadorInternet
+  +iPhone(reprodutor: ReprodutorMusical, telefone: AparelhoTelefonico, navegador: NavegadorInternet)
+  +getReprodutor(): ReprodutorMusical
+  +getTelefone(): AparelhoTelefonico
+  +getNavegador(): NavegadorInternet
+}
+
+iPhone *-- ReprodutorMusical: possui
+iPhone *-- AparelhoTelefonico: possui
+iPhone *-- NavegadorInternet: possui
+
+@enduml
